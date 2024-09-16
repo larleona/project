@@ -2,135 +2,107 @@
 <html>
   <head>
     <style>
-      body{
-  margin: 0;
-}
-.container{
-  height:100%;
-  width: 100%;
-  position: fixed;
-  background-color: rgb(32, 32, 32);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.main-window{
-  background-color: white;
-  height: 290px;
-  width: 650px;
-  border-radius: 3px;
-  display: grid;
-  grid-template-rows: 36px 1fr 1fr;
-}
-
-.top-section{
-  color: rgb(13, 13, 184);
-  font-size: 16px;
-  display: flex;
-  padding-left: 20px;
-  align-items: center;
-  font-weight: bold;
-  border-bottom: 1px solid rgb(230, 230, 230);
-}
-
-.middle-section{
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  font-weight: bold;
-  color: gray;
-  display: grid;
-  padding: 20px 25px;
-  grid-gap: 18px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-  "your-username your-password";
-}
-
-#your-username{
-  grid-area: your-username;
-}
-
-#your-password{
-  grid-area: your-password;
-}
-
-.input-area{ 
-  border: 1px solid rgb(13, 13, 184);
-  border-radius: 5px;
-  height: 50px;
-  width: 95%;
-  padding-left: 8px;
-}
-
-.buttom-section{
-  padding-bottom: 40px;
-  padding-top: 20px;
-  padding-left: 25px;
-  padding-right: 25px;
-  display: flex;
-  justify-content: center;
-}
-
-.sign-in-button{
-  background-color: rgb(179, 40, 40);
-  border-radius: 4px;
-  border-style: none;
-  color: white;
-  font-weight: bold;
-  height: 64px;
-  width: 100%;
-  cursor: pointer;
-}
-
-@media (max-width: 720px){
-  .main-window{ 
-    height: 420px;
-    width: 386px;
-  }
-}
-
-@media (max-width: 720px){
-  .middle-section{ 
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas:
-      "your-username"
-      "your-password";
-  }
-}
+            :root {
+        --main-radius: 5px;
+        --main-padding: 5px;
+      }
+      
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      
+      .container {
+        display: grid;
+        height: 100vh;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.2fr 1.5fr 1.2fr 0.8fr;
+        grid-template-areas:
+          "nav nav nav nav"
+          "sidebar main main main"
+          "sidebar content1 content2 content3"
+          "sidebar footer footer footer";
+        grid-gap: 0.2rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 12px;
+        color: #004d40;
+        text-align: center;
+      }
+      
+      nav {
+        background: #a7ffeb;
+        grid-area: nav;
+        border-radius: var(--main-radius);
+        padding-top: var(--main-padding);
+      }
+      
+      main {
+        background: #84ffff;
+        grid-area: main;
+        border-radius: var(--main-radius);
+        padding-top: var(--main-padding);
+      }
+      
+      #sidebar {
+        background: #18ffff;
+        grid-area: sidebar;
+        border-radius: var(--main-radius);
+        padding-top: var(--main-padding);
+      }
+      
+      #content1 {
+        background: #6fffd2;
+        grid-area: content1;
+        border-radius: var(--main-radius);
+        padding-top: var(--main-padding);
+      }
+      
+      #content2 {
+        background: #64ffda;
+        grid-area: content2;
+        border-radius: var(--main-radius);
+        padding-top: var(--main-padding);
+      }
+      
+      #content3 {
+        background: #73ffba;
+        grid-area: content3;
+        border-radius: var(--main-radius);
+        padding-top: var(--main-padding);
+      }
+      
+      footer {
+        background: #1de9b6;
+        grid-area: footer;
+        border-radius: var(--main-radius);
+        padding-top: var(--main-padding);
+      }
+      
+      @media only screen and (max-width: 550px) {
+        .container {
+          grid-template-columns: 1fr;
+          grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+          grid-template-areas:
+            "nav"
+            "sidebar"
+            "main"
+            "content1"
+            "content2"
+            "content3"
+            "footer";
+        }
+      }
     </style>
   </head>
-
 <body>
   <div class="container">
-    <div class="main-window">
-      <div class="top-section">
-        LOGIN TO YOUR ACCOUNT
-      </div>
-      <div class="middle-section">
-        <div id="your-username">
-          YOUR USERNAME
-          <p>
-            <input type="text" placeholder="enter username" class="input-area">
-          </p>
-        </div>
-        <div id="your-password">
-          YOUR PASSWORD
-          <p>
-          <input type="text" placeholder="enter password" class="input-area">
-          </p>
-        </div>
-      </div>
-      <div class="buttom-section">
-        <button class="sign-in-button">
-          SIGN IN TO YOUR ACCOUNT
-        </button>                
-      </div>
-    </div>
-  </div>    
+    <nav>Navbar</nav>
+    <main>Main</main>
+    <div id="sidebar">Sidebar</div>
+    <div id="content1">Content1</div>
+    <div id="content2">Content2</div>
+    <div id="content3">Content3</div>
+    <footer>Footer</footer>
+  </div>   
 </body>
 </html>
